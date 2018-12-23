@@ -7,6 +7,7 @@ class CrawlerUrls(models.Model):
     url=models.URLField(max_length=500,null=True,blank=True)
     depth=models.IntegerField(default=1)
     status=models.BooleanField(default=False)
+    internalStatus=models.BooleanField(default=False)
     scraping=models.BooleanField(default=False)
     createdOn=models.DateTimeField(default=timezone.now)
     error=models.TextField(null=True,blank=True)
