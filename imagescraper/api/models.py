@@ -7,7 +7,9 @@ class CrawlerUrls(models.Model):
     url=models.URLField(max_length=500,null=True,blank=True)
     depth=models.IntegerField(default=1)
     status=models.BooleanField(default=False)
+    scraping=models.BooleanField(default=False)
     createdOn=models.DateTimeField(default=timezone.now)
+    error=models.TextField(null=True,blank=True)
     def __str__(self):
         return self.title if self.title else self.url
     class Meta:
@@ -18,7 +20,9 @@ class ScrapedUrls(models.Model):
     relatedUrl=models.ForeignKey("ScrapedUrls", verbose_name="Related Url", on_delete=models.CASCADE)
     url=models.URLField(max_length=500,null=True,blank=True)
     depth=models.IntegerField(default=2)
+    scraping=models.BooleanField(default=False)
     createdOn=models.DateTimeField(default=timezone.now)
+    error=models.TextField(null=True,blank=True)
     def __str__(self):
         return self.title if self.title else self.url
     class Meta:
