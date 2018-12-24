@@ -18,7 +18,7 @@ class CrawlerUrls(models.Model):
 class ScrapedUrls(models.Model):
     title=models.CharField(max_length=50,null=True,blank=True)
     parentUrl=models.ForeignKey("CrawlerUrls", verbose_name="Website Url", on_delete=models.CASCADE)
-    relatedUrl=models.ForeignKey("ScrapedUrls", verbose_name="Related Url", on_delete=models.CASCADE)
+    relatedUrl=models.ForeignKey("ScrapedUrls", null=True,blank=True,verbose_name="Related Url", on_delete=models.CASCADE)
     url=models.URLField(max_length=500,null=True,blank=True)
     depth=models.IntegerField(default=2)
     scraping=models.BooleanField(default=False)

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'background_task',
     'api'
 ]
-
+BACKGROUND_TASK_RUN_ASYNC=True
+MAX_ATTEMPTS=2
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'imagescraper',
         'USER': 'root',
-        'PASSWORD': 'Tspavan007$$',
+        'PASSWORD': 'admin@123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {

@@ -20,7 +20,7 @@ class Crawler(object):
         if res.status_code == 200:
             html_code = res.text
         
-            self.soup = BeautifulSoup(html_code)
+            self.soup = BeautifulSoup(html_code,features="html.parser")
 
             try :
                 for link in [h.get('href') for h in self.soup.find_all('a')]:
@@ -33,8 +33,9 @@ class Crawler(object):
                         self.page_links.append(parts.scheme + '://' + parts.netloc + link)
                         print("Adding link " + parts.scheme + '://' + parts.netloc + link + "\n")
                     else:
-                        self.page_links.append(self.current_page+link)
-                        print("Adding link " + self.current_page+link + "\n")
+                        if not link.startswith("#"):
+                            self.page_links.append(self.current_page+link)
+                            print("Adding link " + self.current_page+link + "\n")
 
             except Exception as ex:
                 print(ex)
