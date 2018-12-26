@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'imagescraper',
         'USER': 'root',
-        'PASSWORD': 'admin@123',
+        'PASSWORD': 'Tspavan007$$',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
         'OPTIONS': {
