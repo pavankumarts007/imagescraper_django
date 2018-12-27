@@ -78,7 +78,7 @@ def scrapeSubInternalUrls(id=None):
                     if link.startswith(parent.url) and not ScrapedUrls.objects.filter(url=link).exists():
                         ScrapedUrls.objects.create(url=link,parentUrl=parent.parentUrl,relatedUrl=url,createdOn=timezone.now(),depth=url.depth+1)
             if parent.parentUrl.depth > url.depth+1:
-                scrapeSubInternalUrls(id=url.id)        
+                scrapeSubInternalUrls(id=url.id)
         except Exception as ex:
             raise
             print(ex)      
